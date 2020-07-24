@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="p5.js"></script>
+  <script src="p5.sound.min.js"></script>
+  <script src="1372735d92.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" href="res/logo.png" type="image/png">
+  <title> MAZE</title>
+  <meta charset="utf-8">
+
+</head>
+
+<body>
+  <div class="grid-box">
+    <div id="menuPanel">
+      <button id="setting" onclick="openSettings()">
+        <i class="fas fa-cog"></i>
+      </button>
+      <div id="logo" onclick="">
+        <img src = "res/logo.png"/>
+      </div>
+      
+    </div>
+    <div id="canvasContainer">
+      <!-- canvas is inserted through script.js -->
+    </div>
+    <div id="controlContainer">
+      <div id="controlPanel">
+        <button id="upB" class="controls" onclick="movementByButton('u')"> <i class="fas fa-arrow-up "></i></button>
+        <button id="leftB" class="controls" onclick="movementByButton('l')"><i class="fas fa-arrow-left "></i> </button>
+        <button id="downB" class="controls" onclick="movementByButton('d')"> <i class="fas fa-arrow-down "></i></button>
+        <button id="rightB" class="controls" onclick="movementByButton('r')"> <i
+            class="fas fa-arrow-right"></i></button>
+        <div id="dummy1" class="dummyControl"></div>
+        <div id="dummy2" class="dummyControl"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pop-up hidden">
+    <div class="pop-up-card hidden">
+      <div class="middle-of-pop-up-card">
+        Congrats! You have completed it.
+        <div id="anotherOne">
+          <button onclick="newGame(); closePopUps()">TRY ANOTHER ONE </button>
+          <button onclick="closePopUps();openSettings();">OPEN SETTINGS </button>
+        </div>
+
+      </div>
+
+
+      <button class="pop-up-close" onclick="closePopUps()">
+        <i class="far fa-window-close"></i>
+      </button>
+    </div>
+
+
+    <div class="pop-up-card hidden ">
+      <ul class="middle-of-pop-up-card">
+        <li><button onclick="changeLevel('EASY'); closePopUps()">EASY</button> </li>
+        <li><button onclick="changeLevel('MED'); closePopUps()">MEDIUM</button></li>
+        <li><button onclick="changeLevel('HARD'); closePopUps()">HARD</button></li>
+        <li><button onclick="newGame(); closePopUps()">NEW </button></li>
+      </ul>
+      <button class="pop-up-close" onclick="closePopUps()">
+        <i class="far fa-window-close"></i>
+      </button>
+    </div>
+  </div>
+  <script src="sketch.js"></script>
+
+
+
+
+</body>
+
+</html>
