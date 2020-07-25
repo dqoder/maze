@@ -310,7 +310,7 @@ div.middle-of-pop-up-card {
   background: none;
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:1200px) {
   .grid-box {
     grid-gap: 10px;
     grid-template-columns: 1fr;
