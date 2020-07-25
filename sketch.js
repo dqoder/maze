@@ -196,15 +196,7 @@ function whereToMove(movedTo = noCell) {
   let prev = noCell
 
   if (movedTo != noCell) { // do path tracing
-    if (forSoundEffect) {
-      wSF.play();
-      wSF2.stop()
-    }
 
-    else {
-      wSF2.play()
-      wSF.stop()
-    }
     forSoundEffect = !forSoundEffect;
     prev = solutionHead
     solutionHead = movedTo; //this ; is imp as below is anony. function invocation
