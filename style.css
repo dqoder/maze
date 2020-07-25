@@ -283,9 +283,11 @@ div.middle-of-pop-up-card {
   color: white;
   display: block;
   font-family: monospace;
-  font-size: 20px;
+  font-size: 40px;
   letter-spacing: 1px;
   align-items: center;
+
+  text-shadow:  6px 5px 10px black;
 }
 
 #anotherOne {
@@ -310,7 +312,7 @@ div.middle-of-pop-up-card {
   background: none;
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:1000px) {
   .grid-box {
     grid-gap: 10px;
     grid-template-columns: 1fr;
@@ -343,6 +345,11 @@ div.middle-of-pop-up-card {
   .middle-of-pop-up-card button{
     font-size: 60px;
     min-width: 300px;
+  }
+  div.middle-of-pop-up-card {
+    font-size: 100px;
+    /* color: black; */
+    
   }
 }
 
