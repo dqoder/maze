@@ -162,7 +162,7 @@ submit {
   background: none;
 }
 
-#logo{
+#logo {
   grid-area: 3/1/-1/1;
   align-self: center;
   width: 100%;
@@ -171,10 +171,14 @@ submit {
   /* background: none; */
 
 }
-#logo > img{
-  width: 100%;;
-  height: 100%;;
+
+#logo>img {
+  width: 100%;
+  ;
+  height: 100%;
+  ;
 }
+
 #setting>i {
   font-size: 30px;
   color: white;
@@ -287,17 +291,20 @@ div.middle-of-pop-up-card {
   letter-spacing: 1px;
   align-items: center;
   align-self: center;
-  align-content: center;;
+  align-content: center;
+  ;
   /* outline: 3px solid green;; */
   /* background-color: red;; */
-  text-shadow:  6px 5px 10px black;
+  text-shadow: 6px 5px 10px black;
 }
-.congrats-msg{
+
+.congrats-msg {
   /* outline: 5px solid black; */
   text-align: center;
   margin-top: 25%;
 
 }
+
 #anotherOne {
   position: absolute;
   width: 100%;
@@ -320,6 +327,116 @@ div.middle-of-pop-up-card {
   background: none;
 }
 
+
+/* animation */
+.loader-wrapper {
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+
+  display: inline-block;
+  color: black;
+  position: relative;
+  /* box-sizing: border-box; */
+  width: 30px;
+  height: 30px;
+  font-family: monospace;
+  text-align: center;
+  font-weight: bold;
+  border: 4px solid #Fff;
+  border-radius: 50%;
+  background-color: #fff;
+  animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+
+  vertical-align: top;
+  display: inline-block;
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  width: 100%;
+  border-radius: 50%;
+  /* padding: 2px; */
+  color: white;
+  background-color: black;
+
+  /* transform: rotate(180deg); */
+  animation: loader-inner 2s infinite ease-in;
+
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+
+  }
+
+  25% {
+    height: 0%;
+
+  }
+
+  50% {
+    height: 100%;
+
+  }
+
+  75% {
+    height: 100%;
+
+  }
+
+  100% {
+    height: 0%;
+
+  }
+}
+
+.loader-inner>text {
+  color: black;
+  z-index: 101;
+  text-shadow: 1 1 white;
+  display: block;
+  transform: rotate(180deg);
+}
+
+/* animation styling end*/
+
+
 @media screen and (max-width:1000px) {
   .grid-box {
     grid-gap: 10px;
@@ -333,33 +450,59 @@ div.middle-of-pop-up-card {
     grid-template-columns: 150px 1fr 150px;
     /* outline: 2px solid red; */
   }
-  #setting{grid-area: 1/1/1/1;}
-  #logo{ grid-area: 1/3/1/4;}
+
+  #setting {
+    grid-area: 1/1/1/1;
+  }
+
+  #logo {
+    grid-area: 1/3/1/4;
+  }
+
   #controlPanel {
     height: 290px;
     width: 600px;
   }
-  .controls > i{
+
+  .controls>i {
     font-size: 60px;
   }
-  #setting > i{
+
+  #setting>i {
     font-size: 100px;
   }
-  .pop-up-close >i{
+
+  .pop-up-close>i {
     font-size: 100px;
     margin-right: 50px;
   }
 
-  .middle-of-pop-up-card button{
+  .middle-of-pop-up-card button {
     font-size: 60px;
     min-width: 300px;
   }
+
   div.middle-of-pop-up-card {
     font-size: 100px;
     /* color: black; */
-    
+
+  }
+
+  .loader {
+    height: 60px;
+    width: 60px;
+    font-size: 30px;
   }
 }
+
+/* body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #eee;
+} */
+
 
 /* 
 
