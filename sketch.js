@@ -15,9 +15,48 @@ var mazeCompleted = false;
 var wSF, wSF2; // walkingSoundEffect
 var forSoundEffect = false;
 var aplSF
+var movesCounter = 0
+// timer
+const TIME_LIMIT = 20;
+let timePassed = 0;
+let timeLeft = TIME_LIMIT;
+let timerInterval = null;
+
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+function startTimer() {
+  stopTimer(timerInterval);
+  timePassed = 0;
+  timerInterval = setInterval(() => {
+    timePassed = timePassed += 1;
+    if (mazeCompleted || timePassed >= 60 * 60 * 24)
+      stopTimer();
+    document.getElementById("timer").innerHTML = formatTime(timePassed);
+
+  }, 1000);
+}
+
+function formatTime(time) {
+  let hours = Math.floor(time / 3600);
+
+  let minutes = Math.floor(time % 3600 / 60);
+  let seconds = time % 60;
+
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+  if (minutes < 10) minutes = '0' + minutes
+  if (hours < 10) hours = '0' + hours
+
+  return `${hours}:${minutes}:${seconds}`;
+}
+
 function preload() {
-  wSF = loadSound("res/walkingSoundEffect3.mp3")
-  wSF2 = loadSound("res/walkingSoundEffect2.mp3")
+  // wSF = loadSound("res/walkingSoundEffect3.mp3")
+  // wSF2 = loadSound("res/walkingSoundEffect2.mp3")
   aplSF = loadSound("res/applause10.mp3")
 }
 
@@ -201,7 +240,9 @@ function whereToMove(movedTo = noCell) {
     prev = solutionHead
     solutionHead = movedTo; //this ; is imp as below is anony. function invocation
 
-
+    //moves-counter update
+    movesCounter++;
+    document.getElementById('moves').innerHTML = movesCounter
 
     printSCEL();
     if (solStack.length == 0) {
@@ -296,6 +337,8 @@ function keyPressed() {
     }
 
     whereToMove(movedTo)
+
+
 
   }
 
@@ -448,6 +491,11 @@ function changeLevel(changeLevelTo = "EASY") {
 
 function newGame() {
   background(0);
+  // timePassed = 0; // redundant as done in startTimer() itself
+  movesCounter = 0;
+
+  $('#moves').html('00')
+
   solStack = []
   grid = []
   mazeCompleted = false;
@@ -510,7 +558,7 @@ function newGame() {
 
   rectMode(CORNER)
 
-
+  startTimer();
 }
 
 function congrats() {
@@ -527,3 +575,5 @@ function congrats() {
 
 function draw() {
 }
+
+
